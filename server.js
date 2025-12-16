@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const connect = require('./mongoConnect');
 const Product = require('./models/ProductsModel');
+const Users = require('./models/UsersModel');
 
 const app = express();
 
@@ -23,6 +24,23 @@ app.post('/products', async (req, res) => {
   const savedProduct = await newProduct.save();
 
   res.status(201).send(savedProduct);
+});
+
+// пользователи
+
+app.get('/users', async (req, res) => {
+  const products = await Users.find();
+
+  res.status(200).send(products);
+});
+
+app.post('/users', async (req, res) => {
+  const users = req.body;
+
+  const newUsers = new Users(users);
+  const savedUsers = await newUsers.save();
+
+  res.status(201).send(savedUsers);
 });
 
 app.listen(5005, () => {

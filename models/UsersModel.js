@@ -3,13 +3,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // установка схемы
-const productScheme = new Schema(
+const UsersScheme = new Schema(
   {
-    image: String,
-    price: Number,
-    sold: Number,
-    stock: Number,
-    title: String,
+    status: String,
+    created: String,
+    role: String,
+    email: String,
+    name: String,
+    password: {
+      type: String,
+      required: false,
+    },
   },
   {
     toJSON: {
@@ -23,6 +27,6 @@ const productScheme = new Schema(
   }
 );
 
-const Product = mongoose.model('Product', productScheme);
+const Users = mongoose.model('Users', UsersScheme);
 
-module.exports = Product;
+module.exports = Users;

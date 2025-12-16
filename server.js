@@ -3,6 +3,7 @@ const cors = require('cors');
 const connect = require('./mongoConnect');
 const Product = require('./models/ProductsModel');
 const Users = require('./models/UsersModel');
+require('./telegram');
 
 const app = express();
 

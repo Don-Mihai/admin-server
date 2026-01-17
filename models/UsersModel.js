@@ -14,6 +14,10 @@ const UsersScheme = new Schema(
       type: String,
       required: false,
     },
+    avatarUrl: {
+      type: String,
+      required: false,
+    },
   },
   {
     toJSON: {
